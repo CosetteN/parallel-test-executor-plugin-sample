@@ -1,5 +1,3 @@
-!#groovy
-
 def splits = splitTests count(2)
 def branches = [:]
 for (int i = 0; i < splits.size(); i++) {
