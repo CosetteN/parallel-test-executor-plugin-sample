@@ -1,3 +1,4 @@
+stage 'Checkout'
 // 'master' below indicates use master Jenkins only.  Can be replaced with the name of a node or a
 // label used on several nodes.
 node('master') {
@@ -8,6 +9,8 @@ node('master') {
     git 'https://github.com/jenkinsci/parallel-test-executor-plugin-sample.git'
     stash name: 'sources', includes: 'pom.xml,src/'
 }
+
+stage 'Tests'
 // Tests will be split into two sets of roughly equal runtime and run in parallel.
 def splits = splitTests count(2)
 def branches = [:]
